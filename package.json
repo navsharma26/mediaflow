@@ -1,0 +1,28 @@
+{
+  "name": "mediaflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Distributed Cloud Media Processing Platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:gateway": "npm --workspace=apps/api-gateway run dev",
+    "dev:image-worker": "npm --workspace=apps/image-worker run dev",
+    "dev:video-worker": "npm --workspace=apps/video-worker run dev",
+    "dev:frontend": "npm --workspace=apps/frontend run dev",
+    "build": "npm run build --workspaces"
+  },
+  "keywords": [
+    "media-processing",
+    "distributed",
+    "bullmq",
+    "ffmpeg",
+    "sharp",
+    "nextjs",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT"
+}
