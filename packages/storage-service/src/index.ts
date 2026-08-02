@@ -18,6 +18,7 @@ export function createStorageProvider(): IStorageProvider {
   }
 
   const localPath = process.env.LOCAL_STORAGE_PATH || './uploads';
-  const baseUrl = process.env.PUBLIC_BASE_URL || 'http://localhost:5000';
+  const baseUrl = process.env.PUBLIC_BASE_URL || 'http://localhost:5001';
   return new LocalStorageProvider(localPath, baseUrl);
+
 }

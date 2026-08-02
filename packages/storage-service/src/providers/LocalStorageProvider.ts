@@ -7,7 +7,8 @@ export class LocalStorageProvider implements IStorageProvider {
   private baseDir: string;
   private publicBaseUrl: string;
 
-  constructor(baseDir: string = './uploads', publicBaseUrl: string = 'http://localhost:5000') {
+  constructor(baseDir: string = './uploads', publicBaseUrl: string = 'http://localhost:5001') {
+
     this.baseDir = path.resolve(baseDir);
     this.publicBaseUrl = publicBaseUrl;
     fs.ensureDirSync(this.baseDir);

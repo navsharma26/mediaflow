@@ -7,12 +7,16 @@ export const redisConnection = new Redis({
   host: redisHost,
   port: redisPort,
   maxRetriesPerRequest: null,
+  retryStrategy(times) {
+    // Retry connection gracefully every 5 seconds
+    return Math.min(times * 500, 5000);
+  },
 });
 
 redisConnection.on('connect', () => {
-  console.log('[Redis] Connected to Redis server');
+  console.log('[Redis] Successfully connected to Redis server');
 });
 
 redisConnection.on('error', (err) => {
-  console.error('[Redis] Redis Connection Error:', err);
+  console.warn('[Redis Warning] Unable to connect to Redis on port 6379. Make sure Redis is running for BullMQ background queues.');
 });
